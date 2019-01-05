@@ -15,5 +15,8 @@ module Bmi
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    # Loads Auth0 config
+    config.auth0 = config_for(:auth0)
   end
 end
