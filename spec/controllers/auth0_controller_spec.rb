@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Auth0Controller, type: :controller do
+RSpec.describe Auth0Controller do
   describe 'GET success' do
     it do
       subject { response }
@@ -12,8 +12,6 @@ RSpec.describe Auth0Controller, type: :controller do
 
   describe 'GET failure' do
     it do
-      subject { response }
-
       get :failure, params: { message: ':(' }
       expect(assigns @error_msg).to include(error_msg: ':(')
     end
