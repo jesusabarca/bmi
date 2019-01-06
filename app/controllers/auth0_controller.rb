@@ -5,10 +5,10 @@ class Auth0Controller < ApplicationController
 
   skip_before_action :ensure_login, only: %i[success failure logout]
 
-  def success
-    session[:userinfo] = request.env['omniauth.auth']
+  before_action :set_user_session, only: :success
 
-    redirect_to '/dashboard'
+  def success
+    redirect_to user_path(current_user)
   end
 
   def failure
@@ -20,5 +20,11 @@ class Auth0Controller < ApplicationController
     reset_session
 
     redirect_to auth0_logout_url
+  end
+
+  private
+
+  def set_user_session
+    session[:userinfo] = request.env['omniauth.auth']
   end
 end
