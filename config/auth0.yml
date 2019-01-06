@@ -1,0 +1,13 @@
+default: &default
+  client_id: 'SusJviL0B_Ad6Y1AvFx23019F2Y4yUsA'
+  namespace: 'silent-lab-1063.auth0.com'
+  callback_path: '/auth/success'
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default
