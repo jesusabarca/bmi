@@ -6,6 +6,7 @@ RSpec.describe User do
   subject { build :user }
 
   it { is_expected.to validate_presence_of :email }
+  it { is_expected.to validate_presence_of :name }
   it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
 
   context 'with an invalid email' do
