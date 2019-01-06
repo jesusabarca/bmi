@@ -10,9 +10,21 @@ RSpec.describe UsersController do
   end
 
   describe 'GET #show' do
-    it do
-      get :show, params: { id: user.id }
-      is_expected.to be_successful
+    context 'with his/her information' do
+      it do
+        get :show, params: { id: user.id }
+        is_expected.to be_successful
+      end
+    end
+
+    context "with other user's information" do
+      let(:user) { create :user, email: 'another@user.com' }
+
+      it do
+        expect do
+          get :show, params: { id: user.id }
+        end.to raise_error(CanCan::AccessDenied)
+      end
     end
   end
 
@@ -24,9 +36,21 @@ RSpec.describe UsersController do
       }
     end
 
-    it do
-      put :update, params: params
-      is_expected.to be_successful
+    context 'with his/her information' do
+      it do
+        put :update, params: params
+        is_expected.to be_successful
+      end
+    end
+
+    context "with other user's information" do
+      let(:user) { create :user, email: 'another@user.com' }
+
+      it do
+        expect do
+          put :update, params: params
+        end.to raise_error(CanCan::AccessDenied)
+      end
     end
   end
 end
