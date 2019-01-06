@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class Auth0Controller < ApplicationController
+  include Auth0Helper
+
+  skip_before_action :ensure_login, only: %i[success failure logout]
+
   def success
     session[:userinfo] = request.env['omniauth.auth']
 
