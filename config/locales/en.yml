@@ -46,6 +46,12 @@ en:
   super_obese: Super obese
   hyper_obese: Hyper obese
 
+  users:
+    show:
+      height: Height in cms
+      weight: Weight in cms
+      submit: Calcular BMI
+
   activerecord:
     errors:
       messages:

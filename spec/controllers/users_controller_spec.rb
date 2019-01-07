@@ -36,7 +36,7 @@ RSpec.describe UsersController do
       end
 
       it do
-        put :update, params: params
+        put :update, params: params, format: :js
         is_expected.to be_successful
       end
     end
@@ -52,7 +52,7 @@ RSpec.describe UsersController do
 
       it do
         expect do
-          put :update, params: params
+          put :update, params: params, format: :js
         end.to raise_error(CanCan::AccessDenied)
       end
     end

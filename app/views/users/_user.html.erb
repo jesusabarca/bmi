@@ -1,11 +1,17 @@
-<div class='user'>
-  <h1><%= @user.name %></h1>
+<div class='user card-body'>
+  <h1 class='card-title'><%= @user.name %></h1>
 
   <% if @user.errors.any? %>
     <% @user.errors.full_messages.each do |msg| %>
       <h3><%= msg %></h3>
     <% end %>
   <% else %>
-    <h3><%= "#{t @user.body_mass_category} (#{@user.body_mass_index})" %></h3>
+    <h3 class='card-subtitle mb-2 text-muted'>
+      <%= t @user.body_mass_category %>
+    </h3>
+
+    <h4 class='card-subtitle mb-2 text-muted'>
+      <%= "(#{@user.body_mass_index})" %>
+    </h4>
   <% end %>
 </div>
