@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   get '/login', to: redirect('/auth/auth0')
   # User logout
   get '/logout' => 'auth0#logout'
+
+  resources :users, only: %i[show update]
 end

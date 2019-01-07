@@ -34,6 +34,24 @@ en:
   home: Home
   logout: Logout
   login: Login
+  very_severely_underweight: Very severily underweight
+  severely_underweight: Severily underweight
+  underweight: Underweight
+  normal: Normal
+  overweight: Overweight
+  moderately_obese: Moderately obese
+  severely_obese: Severely obese
+  very_severely_obese: Very severely obese
+  morbidly_obese: Morbidly obese
+  super_obese: Super obese
+  hyper_obese: Hyper obese
+
+  users:
+    show:
+      height: Height in cms
+      weight: Weight in cms
+      submit: Calcular BMI
+
   activerecord:
     errors:
       messages:

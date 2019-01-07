@@ -66,3 +66,13 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+OmniAuth.config.mock_auth[:auth0] = OmniAuth::AuthHash.new({
+  provider: 'auth0',
+  uid: '123545',
+  info: {
+    name: 'Jesús Abarca',
+    email: 'email@fake.com',
+    nickname: 'Jesús'
+  }
+})
