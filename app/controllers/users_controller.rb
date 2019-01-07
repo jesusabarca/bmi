@@ -6,11 +6,8 @@ class UsersController < ApplicationController
   def show; end
 
   def update
-    if @user.update_attributes(update_params)
-      render plain: 'success'
-    else
-      render plain: 'nope'
-    end
+    @user.update_attributes(update_params)
+    respond_to :js
   end
 
   private

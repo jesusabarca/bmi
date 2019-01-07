@@ -8,9 +8,9 @@ class User < ApplicationRecord
   validates :height, numericality: { greater_than: 0 }, if: proc { |u| u.weight > 0 }
   validates :weight, numericality: { greater_than: 0 }, if: proc { |u| u.height > 0 }
 
-  def bmi
-    weight / (height**2)
-  # rescue ZeroDivisionError
-  #   0
+  delegate :index, :category, to: :body_mass, allow_nil: true, prefix: true
+
+  def body_mass
+    BodyMass.new weight: weight, height: height
   end
 end

@@ -8,6 +8,8 @@ RSpec.describe User do
   it { is_expected.to validate_presence_of :email }
   it { is_expected.to validate_presence_of :name }
   it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
+  it { is_expected.to delegate_method(:index).to(:body_mass).with_prefix.allow_nil }
+  it { is_expected.to delegate_method(:category).to(:body_mass).with_prefix.allow_nil }
 
   context 'with an invalid email' do
     before { subject.validate }
